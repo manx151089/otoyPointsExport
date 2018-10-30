@@ -1,0 +1,32 @@
+def otoyExport():
+    import os
+    import time
+    node = hou.pwd()
+    geo = node.geometry()
+    
+    fPath = hou.hipFile.path()
+    fName = len(hou.hipFile.basename())*-1
+    fComp = fPath[:fName]
+    
+        
+    
+    #data = zzz
+    dirTest = os.path.exists(fComp+"/render/")
+    if dirTest < 1:
+        os.mkdir(fComp+"/render/")
+    
+    
+    frame_range = range(1,10)
+    for frame in frame_range:
+        data = ""
+        hou.setFrame(frame)
+        u = geo.floatListAttribValue('bleh')
+        for i in u:
+            data += str(i)+" "
+        #data = geo.attribValue('bleh')
+        f = open(fComp+"/render/test_"+str(format(hou.intFrame(),'04'))+".txt", 'w')
+        print(str(data))
+        f.write(str(data))
+        f.close()
+        #print "Sucessfully cached frame :" + str(format(hou.intFrame(),'04')) +" with data as follows:"+ data + " in the directory " +fComp
+        
