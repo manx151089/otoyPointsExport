@@ -1,0 +1,16 @@
+4@mytransform=primintrinsic(0,"packedfulltransform",@ptnum);
+3@rot=4@mytransform;
+v@pos=set(@mytransform.ax,@mytransform.ay,@mytransform.az);
+f[]@test=array  (   @rot.xx, @rot.xy, @rot.xz,@pos.x,
+                    @rot.yx, @rot.yy, @rot.yz,@pos.y,
+                    @rot.zx, @rot.zy, @rot.zz,@pos.z  );
+                    
+                    
+foreach(float i;f[]@test)
+    {
+        s@particleData+=sprintf("%d ",i);
+    }
+    
+i@numpoints=@numpt;
+
+setdetailattrib(0,"numpoints",@numpt,"set");
