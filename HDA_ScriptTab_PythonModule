@@ -22,10 +22,10 @@ def otoyExport():
         f = open(fComp+"render/zzz"+"_"+str(format(hou.intFrame(),'04'))+".txt", 'w')
         point = geo.points()
         for p in point:
-            print p
+            #print p
             a=p.floatListAttribValue("test")
             for d in a:
-                print d
+                #print d
                 ptComp = str(d)
                 f.write(ptComp)
                 f.write(" ")
